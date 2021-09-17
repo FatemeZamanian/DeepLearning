@@ -1,6 +1,6 @@
-##MLP vs MLP+CNN on several different datasets
+#MLP vs MLP+CNN on several different datasets
 
-....|  MLP (Machine Learning) | CNN + MLP (Deep Learning) 
+DAtaset |  MLP (Machine Learning) | CNN + MLP (Deep Learning) 
 --- | --- | 
 Mnist  | 98% | 99%
 --- | --- | 
