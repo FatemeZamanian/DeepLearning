@@ -1,6 +1,6 @@
 # MLP vs MLP+CNN on several different datasets
 
-|DAtaset |  MLP (Machine Learning) | CNN + MLP (Deep Learning) |
+|Dataset |  MLP (Machine Learning) | CNN + MLP (Deep Learning) |
 |:---: | :---: |:---:| 
 |Mnist  | 96% | 98%|
 |Fashion Mnist |83% | 90%|
