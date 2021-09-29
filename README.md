@@ -25,7 +25,7 @@
   -  Train the weather on many days of the year, so predict the weather on any day you want
   - Here is Dataset 👉🏻 **[Weather History]( https://drive.google.com/file/d/1JXRl12EpBgHCIilgIhwjaaamntXWn0TB/view?usp=sharing)**.
 
-  - Accuracy for test data with transfer learning:
-     - - Loss : 2.7
+  - Loss for test data with Tensorflow-keras sequential layer: 2.7
+    
 
  
