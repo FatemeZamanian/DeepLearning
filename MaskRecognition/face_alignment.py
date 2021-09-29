@@ -5,12 +5,13 @@ import scipy.ndimage
 import PIL.Image
 import cv2
 
-
 def image_align(img, face_landmarks, output_size=1024, transform_size=4096, enable_padding=True):
         # Align function from FFHQ dataset pre-processing step
         # https://github.com/NVlabs/ffhq-dataset/blob/master/download_ffhq.py
 
         lm = np.array(face_landmarks)
+        # print(img.si)
+        # print(lm)
         lm_chin          = lm[0  : 17]  # left-right
         lm_eyebrow_left  = lm[17 : 22]  # left-right
         lm_eyebrow_right = lm[22 : 27]  # left-right
@@ -44,21 +45,35 @@ def image_align(img, face_landmarks, output_size=1024, transform_size=4096, enab
         # if not os.path.isfile(src_file):
         #     print('\nCannot find source image. Please run "--wilds" before "--align".')
         #     return
-        # img = PIL.Image.open(src_file)
-        img=PIL.Image.fromarray(img.astype('uint8','RGB'))
+        # img = PIL.Image.open(img)
+        from PIL import Image
+        img = Image.fromarray(img.astype('uint8'), 'RGB')
+        # print("%%%%%", type(img))
 
         # Shrink.
+        # print("++++++++++")
+        # print(qsize)
+        # print(output_size)
         shrink = int(np.floor(qsize / output_size * 0.5))
+        # print(shrink)
         if shrink > 1:
+            # print("++++++++++")
             rsize = (int(np.rint(float(img.size[0]) / shrink)), int(np.rint(float(img.size[1]) / shrink)))
+            # print("++++++++++")
+
             img = img.resize(rsize, PIL.Image.ANTIALIAS)
             quad /= shrink
             qsize /= shrink
 
         # Crop.
         border = max(int(np.rint(qsize * 0.1)), 3)
+        # print("++++++++++", border)
         crop = (int(np.floor(min(quad[:,0]))), int(np.floor(min(quad[:,1]))), int(np.ceil(max(quad[:,0]))), int(np.ceil(max(quad[:,1]))))
+        # print("++++++++++", crop, img.size[0])
         crop = (max(crop[0] - border, 0), max(crop[1] - border, 0), min(crop[2] + border, img.size[0]), min(crop[3] + border, img.size[1]))
+        crop2 = (int(np.floor(min(quad[:,0]))), int(np.floor(min(quad[:,1]))), int(np.ceil(max(quad[:,0]))), int(np.ceil(max(quad[:,1]))))
+
+        print(crop)
         if crop[2] - crop[0] < img.size[0] or crop[3] - crop[1] < img.size[1]:
             img = img.crop(crop)
             quad -= crop[0:2]
@@ -82,5 +97,4 @@ def image_align(img, face_landmarks, output_size=1024, transform_size=4096, enab
         img = img.transform((transform_size, transform_size), PIL.Image.QUAD, (quad + 0.5).flatten(), PIL.Image.BILINEAR)
         if output_size < transform_size:
             img = img.resize((output_size, output_size), PIL.Image.ANTIALIAS)
-
-        return cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
+        return cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR), crop

@@ -1,6 +1,5 @@
 import dlib
 
-
 class LandmarksDetector:
     def __init__(self, predictor_model_path):
         """
@@ -10,9 +9,13 @@ class LandmarksDetector:
         self.shape_predictor = dlib.shape_predictor(predictor_model_path)
 
     def get_landmarks(self, img):
-        # img = dlib.load_rgb_image(image)
+        # img = dlib.load_rgb_image(img)
+        # print(type(img))
         dets = self.detector(img, 1)
+        # print("*")
+        # print(dets)
 
         for detection in dets:
+            # print("*")
             face_landmarks = [(item.x, item.y) for item in self.shape_predictor(img, detection).parts()]
             yield face_landmarks
