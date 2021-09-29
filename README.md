@@ -16,7 +16,7 @@
      -- Resnet50V2 : 83%
   
   
-  
+  </details>
   
   
   <details>
