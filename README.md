@@ -10,10 +10,8 @@
   - Here is Dataset 👉🏻 **[17 Flowers](https://drive.google.com/file/d/1JXRl12EpBgHCIilgIhwjaaamntXWn0TB/view?usp=sharing)**.
 
   - Accuracy for test data with transfer learning:
-  <br>
-     -- VGG16 : 68%
-   <br>
-     -- Resnet50V2 : 83%
+     - - VGG16 : 68%
+     - - Resnet50V2 : 83%
   
   
   </details>
@@ -28,7 +26,6 @@
   - Here is Dataset 👉🏻 **[Weather History]( https://drive.google.com/file/d/1JXRl12EpBgHCIilgIhwjaaamntXWn0TB/view?usp=sharing)**.
 
   - Accuracy for test data with transfer learning:
-  <br>
-     -- Loss : 2.7
+     - - Loss : 2.7
 
  
