@@ -45,6 +45,7 @@ def image_align(img, face_landmarks, output_size=1024, transform_size=4096, enab
         #     print('\nCannot find source image. Please run "--wilds" before "--align".')
         #     return
         # img = PIL.Image.open(src_file)
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
         # Shrink.
         shrink = int(np.floor(qsize / output_size * 0.5))
@@ -74,7 +75,8 @@ def image_align(img, face_landmarks, output_size=1024, transform_size=4096, enab
             blur = qsize * 0.02
             img += (scipy.ndimage.gaussian_filter(img, [blur, blur, 0]) - img) * np.clip(mask * 3.0 + 1.0, 0.0, 1.0)
             img += (np.median(img, axis=(0,1)) - img) * np.clip(mask, 0.0, 1.0)
-            img = PIL.Image.fromarray(np.uint8(np.clip(np.rint(img), 0, 255)), 'RGB')
+            # img = PIL.Image.fromarray(np.uint8(np.clip(np.rint(img), 0, 255)), 'RGB')
+            img=PIL.Image.fromarray(img.astype('uint8'),'RGB')
             quad += pad[:2]
 
         # Transform.
