@@ -1,5 +1,8 @@
 # Recognize Person have mask or not 
-- Install requirements
+- To install dependencies run this command:
+```
+pip install -r requirements.txt
+```
 - Downdoad model and put them on files path
 - run main.py
 - Model 
