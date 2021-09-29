@@ -11,3 +11,5 @@ pip install -r requirements.txt
 python main.py 
 ```
 - Dataset 👉🏻 **[face-mask-12k](https://www.kaggle.com/ashishjangra27/face-mask-12k-images-dataset)**.
+
+# # Result :
