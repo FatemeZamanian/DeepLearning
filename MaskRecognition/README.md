@@ -1,4 +1,4 @@
-# Recognize Person have mask or not 
+# Recognize that person have mask or not 
 - To install dependencies run this command:
 ```
 pip install -r requirements.txt
