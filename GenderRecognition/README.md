@@ -12,4 +12,4 @@ python main.py
 ```
 - Dataset 👉🏻 **[gender-recognition-200k-images-celeba](https://www.kaggle.com/ashishjangra27/gender-recognition-200k-images-celeba)**.
 
-# # Result :
+- inference :
