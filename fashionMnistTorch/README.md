@@ -1,4 +1,4 @@
-#FashioMnist
+# FashioMnist
 -- To use files:
 - Clone repo
 
