@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/home/fateme/Desktop/DeepLearning/fashionMnistTorch/train.py", line 13, in <module>
+    model=model.to(device)
+  File "/home/fateme/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 852, in to
+    return self._apply(convert)
+  File "/home/fateme/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 530, in _apply
+    module._apply(fn)
+  File "/home/fateme/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 552, in _apply
+    param_applied = fn(param)
+  File "/home/fateme/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 850, in convert
+    return t.to(device, dtype if t.is_floating_point() or t.is_complex() else None, non_blocking)
+  File "/home/fateme/.local/lib/python3.8/site-packages/torch/cuda/__init__.py", line 172, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: No CUDA GPUs are available
+Traceback (most recent call last):
+  File "/home/fateme/Desktop/DeepLearning/fashionMnistTorch/train.py", line 13, in <module>
+    model=model.to(device)
+  File "/home/fateme/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 852, in to
+    return self._apply(convert)
+  File "/home/fateme/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 530, in _apply
+    module._apply(fn)
+  File "/home/fateme/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 552, in _apply
+    param_applied = fn(param)
+  File "/home/fateme/.local/lib/python3.8/site-packages/torch/nn/modules/module.py", line 850, in convert
+    return t.to(device, dtype if t.is_floating_point() or t.is_complex() else None, non_blocking)
+  File "/home/fateme/.local/lib/python3.8/site-packages/torch/cuda/__init__.py", line 172, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: No CUDA GPUs are available

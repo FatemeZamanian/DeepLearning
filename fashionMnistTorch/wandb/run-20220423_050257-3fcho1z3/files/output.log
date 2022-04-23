@@ -1,0 +1,47 @@
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-images-idx3-ubyte.gz
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-images-idx3-ubyte.gz to ./dataset/FashionMNIST/raw/train-images-idx3-ubyte.gz
+
+
+
+
+
+
+
+26422272it [00:15, 1741595.02it/s]
+Extracting ./dataset/FashionMNIST/raw/train-images-idx3-ubyte.gz to ./dataset/FashionMNIST/raw
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-labels-idx1-ubyte.gz
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-labels-idx1-ubyte.gz to ./dataset/FashionMNIST/raw/train-labels-idx1-ubyte.gz
+Extracting ./dataset/FashionMNIST/raw/train-labels-idx1-ubyte.gz to ./dataset/FashionMNIST/raw
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-images-idx3-ubyte.gz
+29696it [00:00, 72325.96it/s]
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-images-idx3-ubyte.gz to ./dataset/FashionMNIST/raw/t10k-images-idx3-ubyte.gz
+
+ 36%|███████████████████▎                                 | 1607680/4422102 [00:02<00:01, 2306450.87it/s]
+Extracting ./dataset/FashionMNIST/raw/t10k-images-idx3-ubyte.gz to ./dataset/FashionMNIST/raw
+
+4422656it [00:03, 1380369.04it/s]
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-labels-idx1-ubyte.gz to ./dataset/FashionMNIST/raw/t10k-labels-idx1-ubyte.gz
+Extracting ./dataset/FashionMNIST/raw/t10k-labels-idx1-ubyte.gz to ./dataset/FashionMNIST/raw
+6144it [00:00, 5248432.54it/s]
+/home/fateme/.local/lib/python3.8/site-packages/torchvision/datasets/mnist.py:498: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  /pytorch/torch/csrc/utils/tensor_numpy.cpp:180.)
+  return torch.from_numpy(parsed.astype(m[2], copy=False)).view(*s)
+epochs: 0 , loss: 1.4939011335372925, acc: 0.4271222014925373
+epochs: 1 , loss: 1.2167730331420898, acc: 0.52730210554371
+epochs: 2 , loss: 1.192854642868042, acc: 0.5334321695095949
+epochs: 3 , loss: 1.1881085634231567, acc: 0.5341151385927505
+epochs: 4 , loss: 1.1788674592971802, acc: 0.5363972547974414
+epochs: 5 , loss: 1.174072027206421, acc: 0.5394456289978679
+epochs: 6 , loss: 1.164201021194458, acc: 0.5416277985074627
+epochs: 7 , loss: 1.1619281768798828, acc: 0.5402452025586354
+epochs: 8 , loss: 1.1696118116378784, acc: 0.5380130597014925
+epochs: 9 , loss: 1.15120267868042, acc: 0.5436267324093816
+epochs: 10 , loss: 1.157128930091858, acc: 0.5405283848614072
+epochs: 11 , loss: 1.15478515625, acc: 0.5425273187633263
+epochs: 12 , loss: 1.163742184638977, acc: 0.5384461620469083
+epochs: 13 , loss: 1.1515591144561768, acc: 0.5432436034115139
+epochs: 14 , loss: 1.1502528190612793, acc: 0.543143656716418
+epochs: 15 , loss: 1.149549961090088, acc: 0.54284381663113
+epochs: 16 , loss: 1.1456180810928345, acc: 0.5444929371002132
+epochs: 17 , loss: 1.1490411758422852, acc: 0.5433768656716418
+epochs: 18 , loss: 1.158983826637268, acc: 0.5405783582089553
+epochs: 19 , loss: 1.1493456363677979, acc: 0.5389125799573561
