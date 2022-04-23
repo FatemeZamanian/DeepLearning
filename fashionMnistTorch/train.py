@@ -6,9 +6,14 @@ import torchvision
 from model import *
 from test import *
 
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--device", type=str, default='cpu')
+args = parser.parse_args()
+
 wandb.init(project="fashionMnist")
 
-device=torch.device("cpu")
+device=torch.device(args.device)
 model=MyModel()
 model=model.to(device)
 model.train(True)
