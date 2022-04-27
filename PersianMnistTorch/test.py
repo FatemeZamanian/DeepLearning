@@ -17,9 +17,10 @@ m=model.Model()
 m.train(True)
 m=m.to(device)
 
-batch_size=128
+#hyper parameters
+batch_size=64
 epochs=40
-lr=0.0001
+lr=0.001
 
 transform=transforms.Compose([
                                    transforms.RandomRotation(10),
