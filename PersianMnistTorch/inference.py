@@ -27,7 +27,7 @@ m.eval()
 
 def pred(img):
     img=cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
-    img=cv2.resize(img,(50,50))
+    img=cv2.resize(img,(30,30))
     tensor=transform(img).unsqueeze(0)
     tensor=tensor.to(device)
     start=time.time()

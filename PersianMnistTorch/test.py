@@ -23,8 +23,8 @@ epochs=40
 lr=0.0001
 
 transform=transforms.Compose([
-                                   transforms.RandomRotation(10),
-                                   transforms.Resize((50,50)),
+
+                                   transforms.Resize((30,30)),
                                    transforms.ToTensor(),
                                    transforms.Normalize((0.485,0.456,0.406),(0.229,0.224,0.225))
 

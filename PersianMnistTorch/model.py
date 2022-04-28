@@ -8,14 +8,14 @@ class Model(nn.Module):
   def __init__(self):
     super().__init__()
     self.conv1=nn.Conv2d(3,512,(3,3),(1,1),(0,0))
-    self.conv2=nn.Conv2d(512,128,(3,3),(1,1),(0,0))
+    self.conv2=nn.Conv2d(512,128,(3,3),(1,1),(1,1))
     self.conv3=nn.Conv2d(128,64,(3,3),(1,1),(1,1))
     self.conv4=nn.Conv2d(64,32,(3,3),(1,1),(1,1))
-    self.conv5=nn.Conv2d(32,32,(3,3),(1,1),(1,1))
+    self.conv5=nn.Conv2d(32,16,(3,3),(1,1),(1,1))
 
-    self.fc1=nn.Linear(32*2*2,256)
-    self.fc2=nn.Linear(256,512)
-    self.fc3=nn.Linear(512,10)
+    self.fc1=nn.Linear(16*1*1,128)
+    self.fc2=nn.Linear(128,256)
+    self.fc3=nn.Linear(256,10)
   
   def forward(self,x):
     x=F.relu(self.conv1(x))
