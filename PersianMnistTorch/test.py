@@ -3,7 +3,7 @@ import argparse
 from torchvision import transforms
 import torchvision
 import gdown
-import test_model
+import model
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--device", type=str, default='cpu')
@@ -13,18 +13,18 @@ args = parser.parse_args()
 device=torch.device(args.device)
 device=torch.device(args.device if torch.cuda.is_available() else "cpu")
 
-m=test_model.Model()
+m=model.Model()
 m.train(True)
 m=m.to(device)
 
 #hyper parameters
-batch_size=64
+batch_size=16
 epochs=40
-lr=0.001
+lr=0.0001
 
 transform=transforms.Compose([
                                    transforms.RandomRotation(10),
-                                   transforms.Resize((70,70)),
+                                   transforms.Resize((50,50)),
                                    transforms.ToTensor(),
                                    transforms.Normalize((0.485,0.456,0.406),(0.229,0.224,0.225))
 

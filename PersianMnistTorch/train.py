@@ -30,9 +30,9 @@ model=Model().to(device)
 model.train(True)
 
 #hyper parameters
-batch_size=64
+batch_size=16
 epochs=40
-lr=0.001
+lr=0.0001
 
 transform=transforms.Compose([
                                    transforms.RandomRotation(10),
