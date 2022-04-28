@@ -14,7 +14,7 @@ class Model(nn.Module):
     self.conv4=nn.Conv2d(64,32,(3,3),(1,1),(1,1))
     self.conv5=nn.Conv2d(32,16,(3,3),(1,1),(1,1))
 
-    self.fc1=nn.Linear(16*2*2,256)
+    self.fc1=nn.Linear(16*3*3,256)
     self.fc2=nn.Linear(256,512)
     self.fc3=nn.Linear(512,10)
   

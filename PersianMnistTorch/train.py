@@ -9,7 +9,11 @@ from tqdm import tqdm
 
 
 from model import *
-from test import *
+
+def calc_acc(preds,labels):
+  _,pred_max=torch.max(preds,1)
+  acc=torch.sum(pred_max==labels.data,dtype=torch.float64)/len(preds)
+  return acc
 
 
 parser = argparse.ArgumentParser()
@@ -32,7 +36,7 @@ lr=0.001
 
 transform=transforms.Compose([
                                    transforms.RandomRotation(10),
-                                   transforms.Resize((70,70)),
+                                   transforms.Resize((50,50)),
                                    transforms.ToTensor(),
                                    transforms.Normalize((0.485,0.456,0.406),(0.229,0.224,0.225))
 

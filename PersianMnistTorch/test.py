@@ -2,8 +2,8 @@ import torch
 import argparse
 from torchvision import transforms
 import torchvision
-
-import model
+import gdown
+import test_model
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--device", type=str, default='cpu')
@@ -13,7 +13,7 @@ args = parser.parse_args()
 device=torch.device(args.device)
 device=torch.device(args.device if torch.cuda.is_available() else "cpu")
 
-m=model.Model()
+m=test_model.Model()
 m.train(True)
 m=m.to(device)
 
@@ -30,7 +30,9 @@ transform=transforms.Compose([
 
 ])
 
-
+# url="https://drive.google.com/drive/folders/1en-zjfGWNaGTuJ0_AK-TnT9YL3Lfs5_J?usp=sharing"
+# out="pmnist"
+# gdown.download_folder(url)
 
 dataset=torchvision.datasets.ImageFolder(root=args.dataset, transform=transform)
 test_data_loader=torch.utils.data.DataLoader(dataset,batch_size=batch_size,shuffle=True)
