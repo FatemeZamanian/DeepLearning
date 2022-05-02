@@ -1,8 +1,9 @@
-# PersianMnist
+# Face age regression
 To use files:
 - Clone repo
 
 To run train file :
+coppy kaggle.json file in main directory
 ```
 python train.py --device cpu/cuda --dataset path of dataset folder
 ```
