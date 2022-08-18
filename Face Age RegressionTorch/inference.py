@@ -1,24 +1,29 @@
 import argparse
 import time
 import torch
-import torchvision
 import cv2
 import numpy as np
-
+from torchvision import transforms
+from align_image import align
 import model
+from PIL import Image
 
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--device", type=str, default='cpu')
-parser.add_argument("--image", type=str, default='tests/ts5.jpg')
-parser.add_argument("--kind", type=str, default='camera', help="image or camera?")
+parser.add_argument("--image", type=str, default='tests/test2.jpg')
+parser.add_argument("--kind", type=str, default='image', help="image or camera?")
 args = parser.parse_args()
 
 
-transform=torchvision.transforms.Compose([
-                                torchvision.transforms.ToTensor(),
-                                torchvision.transforms.Normalize((0,0,0),(1,1,1))
+transform = transforms.Compose([
+    # transforms.PILToTensor(),
+    transforms.Resize((160,160)),
+    # transforms.RandomRotation(10),
+    transforms.ToTensor(),
+    # torchvision.transforms.Normalize((0), (1))
 ])
+
 
 device=args.device
 m=model.Model()
@@ -26,15 +31,20 @@ m.load_state_dict(torch.load('weight.pth',map_location=args.device))
 m.eval()
 
 def pred(img):
-    img=cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
-    img=cv2.resize(img,(32,32))
-    tensor=transform(img).unsqueeze(0)
-    tensor=tensor.to(device)
-    start=time.time()
-    pred=m(tensor)
-    print(f"{time.time()-start} sec")
-    pred=pred.cpu().detach().numpy()
-    return pred
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    face = align(img)
+    if np.all(face != None):
+        img=cv2.resize(face,(160,160))
+        img = Image.fromarray(img)
+        tensor=transform(img).unsqueeze(0)
+        tensor=tensor.to(device)
+        start=time.time()
+        pred=m(tensor)
+        print(f"{time.time()-start} sec")
+        pred=pred.cpu().detach().numpy()
+        return pred
+    else:
+        return -1
 
 
 

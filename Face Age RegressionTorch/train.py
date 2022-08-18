@@ -2,7 +2,6 @@ import argparse
 import wandb
 import torch
 import torchvision
-import torchvision
 from torchvision import transforms
 from tqdm import tqdm
 
@@ -26,8 +25,8 @@ model=Model().to(device)
 model.train(True)
 
 #hyper parameters
-batch_size=16
-epochs=10
+batch_size=64
+epochs=5
 lr=0.001
 
 train_data_loader = torch.utils.data.DataLoader(train_set, shuffle=True, batch_size=batch_size)

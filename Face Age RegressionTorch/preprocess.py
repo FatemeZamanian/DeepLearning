@@ -22,8 +22,8 @@ import os
 import cv2
 import pandas as pd
 
-w=h=224
-batch_size=32
+w=h=160
+batch_size=64
 
 images=[]
 labels=[]
@@ -48,7 +48,7 @@ under_4=under_4.sample(frac=0.3)
 
 up_4=df[df['ages']>4]
 df=pd.concat([under_4,up_4])
-df=df[df['ages']<90]
+df=df[df['ages']<80]
 
 
 os.makedirs('new')
@@ -96,12 +96,12 @@ class PathologyPlantsDataset(Dataset):
 
 
 transform = transforms.Compose([
-    transforms.Resize((32,32)),
-    transforms.RandomRotation(10),
+    # transforms.PILToTensor(),
+    transforms.Resize((160,160)),
+    # transforms.RandomRotation(10),
     transforms.ToTensor(),
-    transforms.Normalize((0), (1))
+    # torchvision.transforms.Normalize((0), (1))
 ])
-
 
 dataset= PathologyPlantsDataset(data_frame=new_df,root_dir='new', transform=transform)
 train_data_size=int(len(dataset)*0.9)

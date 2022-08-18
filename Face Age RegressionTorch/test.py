@@ -19,8 +19,8 @@ m.train(True)
 m=m.to(device)
 
 #hyper parameters
-batch_size=16
-epochs=10
+batch_size=64
+epochs=5
 lr=0.001
 
 test_data_loader=torch.utils.data.DataLoader(test_set,batch_size=batch_size,shuffle=True)
